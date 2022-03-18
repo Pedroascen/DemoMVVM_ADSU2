@@ -6,4 +6,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\fondo2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\fondo2.jpg" />
+  </ItemGroup>
+
 </Project>

@@ -1,19 +1,18 @@
 ﻿using DemoMVVM01.DAL;
 using DemoMVVM01.Models;
+using DemoMVVM01.Views;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DemoMVVM01.ViewModels
 {
     public class IntermediarioViewModel : BaseViewModel
     {
-
         //view model base es una clase base que hereda de las interfazes anote
         #region Properties
         private List<Usuario> usuarios;
-
 
         public List<Usuario> Usuarios {
             get {
@@ -46,23 +45,21 @@ namespace DemoMVVM01.ViewModels
 
 
         public IntermediarioViewModel() {
-           
+            //usuarioCommandExecute();
         }
 
-        private void usuarioCommandExecute()
+        public void usuarioCommandExecute()
         {
-            Usuario usuario = new Usuario();
             var usuarioService = new UsuarioService();
-            
-                usuario.ID = 1;
-                usuario.Nombre = "Luisa";
-                usuario.Apellido = "Canizalez";
-                usuario.UltiLogin = DateTime.Now.AddDays(usuario.ID);
+            Usuario usuario = new Usuario();
+            GetInput dato = new GetInput();
 
-                
-                usuarioService.SaveUsuario(usuario);
-            
+            usuario.ID = 1;
+            usuario.Nombre = "Luisa";
+            usuario.Apellido = "Canizalez";
+            usuario.Hora = DateTime.Now.AddDays(usuario.ID);
 
+            usuarioService.SaveUsuario(usuario);
             var result = usuarioService.GetUsuario();
             Usuarios = new List<Usuario>(result);
         }

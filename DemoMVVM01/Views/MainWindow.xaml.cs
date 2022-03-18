@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DemoMVVM01.DAL;
+using DemoMVVM01.Models;
+using DemoMVVM01.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,17 @@ namespace DemoMVVM01.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        IntermediarioViewModel model = new IntermediarioViewModel();
         public MainWindow()
         {
             InitializeComponent();
+
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
