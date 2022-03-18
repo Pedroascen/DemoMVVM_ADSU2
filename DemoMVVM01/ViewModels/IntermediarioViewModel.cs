@@ -45,7 +45,7 @@ namespace DemoMVVM01.ViewModels
 
 
         public IntermediarioViewModel() {
-            //usuarioCommandExecute();
+            usuarioCommandExecute();
         }
 
         public void usuarioCommandExecute()
@@ -55,8 +55,8 @@ namespace DemoMVVM01.ViewModels
             GetInput dato = new GetInput();
 
             usuario.ID = 1;
-            usuario.Nombre = "Luisa";
-            usuario.Apellido = "Canizalez";
+            usuario.Nombre = "Pedro";
+            usuario.Apellido = "Ascencio";
             usuario.Hora = DateTime.Now.AddDays(usuario.ID);
 
             usuarioService.SaveUsuario(usuario);

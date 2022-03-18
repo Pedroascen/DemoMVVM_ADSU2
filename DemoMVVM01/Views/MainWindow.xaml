@@ -33,8 +33,16 @@
         <Border Grid.Row="1" Grid.Column="0" Height="35" Padding="5" Background="#4E87D4" VerticalAlignment="Top">
             <Label FontFamily="Trebuchet MS" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" Foreground="White">Nombres:</Label>
         </Border>
-        <DataGrid Grid.Row="1" Grid.Column="0"  ItemsSource="{Binding Usuarios}" Margin="0,35,0,0" IsReadOnly="True"/>
-        <Button x:Name="btnAdd" Command="{Binding UsuarioCommand}" Content="Refrescar Tabla" Margin="10,5,10,10" Height="35" Grid.Row="2"/>
+        <!--DataGrid Grid.Row="1" Grid.Column="0"  ItemsSource="{Binding Usuarios}" Margin="0,35,0,0" IsReadOnly="True"/-->
+        <ListView ItemsSource="{Binding Usuarios}" Grid.Row="1" Grid.Column="0" Width="auto">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Primer Nombre" DisplayMemberBinding="{Binding Nombre}" Width="auto"/>
+                    <GridViewColumn Header="Primer Apellido" DisplayMemberBinding="{Binding Apellido}" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!--Button x:Name="btnAdd" Command="{Binding UsuarioCommand}" Content="Refrescar Tabla" Margin="10,5,10,10" Height="35" Grid.Row="2"/-->
 
         <!--Formulario-->
         <Border Grid.Row="1" Grid.Column="1" Height="35" Padding="5" Background="#4E87D4" VerticalAlignment="Top">
