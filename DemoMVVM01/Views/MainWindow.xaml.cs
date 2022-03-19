@@ -1,20 +1,6 @@
-﻿using DemoMVVM01.DAL;
-using DemoMVVM01.Models;
-using DemoMVVM01.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DemoMVVM01.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace DemoMVVM01.Views
 {
@@ -33,7 +19,20 @@ namespace DemoMVVM01.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (INombreText.Text == string.Empty || IApellidoText.Text == string.Empty)
+            {
+                MessageBox.Show("Por favor verifique los campos.");
+                return;
+            }
+            else {
+                //GetInput.id = Int32.Parse(IdText.Text);
+                GetInput.nombre = INombreText.Text;
+                GetInput.apellido = IApellidoText.Text;
+                //MessageBox.Show("Su nombre es: " + GetInput.nombre + " " + GetInput.apellido);
+                //IdText.Clear();
+                INombreText.Clear();
+                IApellidoText.Clear();
+            }
         }
     }
 }

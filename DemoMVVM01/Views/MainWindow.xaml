@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodel="clr-namespace:DemoMVVM01.ViewModels"
         mc:Ignorable="d"
-        Title="Agregar Usuarios" Height="400" Width="600" ResizeMode="CanMinimize">
+        Title="Agregar Usuarios" Height="400" Width="600" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" >
     <Window.Resources>
         <viewmodel:IntermediarioViewModel x:Key="IntermediarioViewModel"/>
     </Window.Resources>
@@ -16,7 +16,8 @@
         </Grid.Background>
         <!--Contenedor-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="280"/>
+            <ColumnDefinition Width="181.949"/>
+            <ColumnDefinition Width="98.051"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -26,35 +27,49 @@
         </Grid.RowDefinitions>
         <!--Titulo-->
         <Label Grid.Column="0" VerticalAlignment="Center" FontFamily="Trebuchet MS" 
-        FontWeight="Bold" FontSize="20" Foreground="White" Margin="32,0,0,0">
+        FontWeight="Bold" FontSize="20" Foreground="White" Margin="32,0,0,0" Grid.ColumnSpan="2">
             Listado de usuarios:
         </Label>
         <!--listado-->
-        <Border Grid.Row="1" Grid.Column="0" Height="35" Padding="5" Background="#4E87D4" VerticalAlignment="Top">
-            <Label FontFamily="Trebuchet MS" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" Foreground="White">Nombres:</Label>
+        <Border Grid.Row="1" Grid.Column="0" Height="35" Padding="5" Background="#4E87D4" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Label FontFamily="Trebuchet MS" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" Foreground="White">Tabla de Datos:</Label>
         </Border>
         <!--DataGrid Grid.Row="1" Grid.Column="0"  ItemsSource="{Binding Usuarios}" Margin="0,35,0,0" IsReadOnly="True"/-->
-        <ListView ItemsSource="{Binding Usuarios}" Grid.Row="1" Grid.Column="0" Width="auto">
+        <ListView ItemsSource="{Binding Usuarios}" Grid.Row="1" Grid.Column="0" Width="280" Margin="0,35,0,0" HorizontalAlignment="Left" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Primer Nombre" DisplayMemberBinding="{Binding Nombre}" Width="auto"/>
-                    <GridViewColumn Header="Primer Apellido" DisplayMemberBinding="{Binding Apellido}" Width="auto"/>
+                    <GridViewColumn Header=" Id " DisplayMemberBinding="{Binding ID}" Width="auto"/>
+                    <GridViewColumn Header=" Nombre " DisplayMemberBinding="{Binding Nombre}" Width="auto"/>
+                    <GridViewColumn Header=" Apellido " DisplayMemberBinding="{Binding Apellido}" Width="auto"/>
+                    <GridViewColumn Header=" Hora " DisplayMemberBinding="{Binding Hora}" Width="auto"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <!--Button x:Name="btnAdd" Command="{Binding UsuarioCommand}" Content="Refrescar Tabla" Margin="10,5,10,10" Height="35" Grid.Row="2"/-->
 
         <!--Formulario-->
-        <Border Grid.Row="1" Grid.Column="1" Height="35" Padding="5" Background="#4E87D4" VerticalAlignment="Top">
+        <Border Grid.Row="1" Grid.Column="2" Height="35" Padding="5" Background="#4E87D4" VerticalAlignment="Top">
             <Label FontFamily="Trebuchet MS" FontWeight="Bold" FontSize="14"  VerticalAlignment="Center" Foreground="White">Fomulario:</Label>
         </Border>
-        <Grid Grid.Row="1" Grid.Column="1" Margin="0,35,0,0" Background="White">
-            <Label Content="nombre" Foreground="Black" Margin="23,10,226,156"/>
-            <TextBox Text="{Binding Path=Nombre}" BorderBrush="Black" Margin="94,10,23,156"/>
+        <Grid Grid.Row="1" Grid.Column="2" Background="White" Height="219" VerticalAlignment="Top" Margin="0,35,0,0" HorizontalAlignment="Center" Width="320">
+            <!--Label Height="25" Margin="50,41,200,153" Content="Codigo:"/>
+            <TextBox x:Name="IdText" Height="20" Margin="125,44,130,155" InputScope="Number"/-->
+            <Label Height="25" Margin="54,47,190,147" Content="Nombre:"/>
+            <TextBox x:Name="INombreText" Height="20" Width="130" Margin="130,51,60,148"/>
+            <Label Height="25" Margin="54,82,190,112" Content="Apellido:" />
+            <TextBox x:Name="IApellidoText" Height="20" Width="130" Margin="130,83,60,116"/>
+            <Button Height="30" Margin="69,121,55,68" Content="Agregar Usuario" Click="Button_Click" Command="{Binding UsuarioCommand}"/>
+
+            <!--Label Content="nombre" Foreground="Black" Margin="23,10,226,156"/>
+            <TextBox x:Name="INombreText" Text="{Binding Path=Nombre}" BorderBrush="Black" Margin="94,10,23,156"/>
 
             <Label Content="Apellido" Foreground="Black" Margin="23,63,226,99"/>
-            <TextBox Text="{Binding Path=Apellido}" BorderBrush="Black" Margin="94,68,23,94"/>
-            <Button Height="30" Margin="10,100,10,0" Content="Agregar Usuario" Click="Button_Click"/>
+            <TextBox x:Name="IApellidoText" Text="{Binding Path=Apellido}" BorderBrush="Black" Margin="94,68,23,94"/-->
+            <!--Label Content="nombre" Foreground="Black" Margin="23,10,226,156"/>
+            <TextBox x:Name="INombreText" Text="{Binding Path=Nombre}" BorderBrush="Black" Margin="94,10,23,156"/>
+
+            <Label Content="Apellido" Foreground="Black" Margin="23,63,226,99"/>
+            <TextBox x:Name="IApellidoText" Text="{Binding Path=Apellido}" BorderBrush="Black" Margin="94,68,23,94"/-->
         </Grid>
     </Grid>
 </Window>

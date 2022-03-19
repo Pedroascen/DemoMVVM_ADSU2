@@ -45,23 +45,32 @@ namespace DemoMVVM01.ViewModels
 
 
         public IntermediarioViewModel() {
-            usuarioCommandExecute();
+            //usuarioCommandExecute();
         }
 
         public void usuarioCommandExecute()
         {
+
+
             var usuarioService = new UsuarioService();
             Usuario usuario = new Usuario();
-            GetInput dato = new GetInput();
 
-            usuario.ID = 1;
-            usuario.Nombre = "Pedro";
-            usuario.Apellido = "Ascencio";
+            usuario.ID++;
+            usuario.Nombre = GetInput.nombre;
+            usuario.Apellido = GetInput.apellido;
             usuario.Hora = DateTime.Now.AddDays(usuario.ID);
 
-            usuarioService.SaveUsuario(usuario);
-            var result = usuarioService.GetUsuario();
-            Usuarios = new List<Usuario>(result);
+            if (usuario.Nombre == null || usuario.Apellido == null) {
+                //MessageBox.Show("Datos no guardados");
+                return;
+            }
+            else
+            {
+                usuarioService.SaveUsuario(usuario);
+                var result = usuarioService.GetUsuario();
+                Usuarios = new List<Usuario>(result);
+            }
+
         }
     }
 }
