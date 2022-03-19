@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace DemoMVVM01.Views
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         IntermediarioViewModel model = new IntermediarioViewModel();
@@ -30,8 +27,8 @@ namespace DemoMVVM01.Views
                 GetInput.apellido = IApellidoText.Text;
                 //MessageBox.Show("Su nombre es: " + GetInput.nombre + " " + GetInput.apellido);
                 //IdText.Clear();
-                INombreText.Clear();
-                IApellidoText.Clear();
+                //INombreText.Clear();
+                //IApellidoText.Clear();
             }
         }
     }

@@ -13,6 +13,7 @@ namespace DemoMVVM01.ViewModels
         //view model base es una clase base que hereda de las interfazes anote
         #region Properties
         private List<Usuario> usuarios;
+        
 
         public List<Usuario> Usuarios {
             get {
@@ -25,6 +26,10 @@ namespace DemoMVVM01.ViewModels
                 usuarios = value;
                 OnPropertiesChanged("Usuarios");
             }
+        }
+
+        public List<Usuario> Usuario { 
+            get { return usuarios; }
         }
         #endregion
 
@@ -50,10 +55,8 @@ namespace DemoMVVM01.ViewModels
 
         public void usuarioCommandExecute()
         {
-
-
-            var usuarioService = new UsuarioService();
             Usuario usuario = new Usuario();
+            var usuarioService = new UsuarioService();
 
             usuario.ID++;
             usuario.Nombre = GetInput.nombre;
@@ -64,13 +67,9 @@ namespace DemoMVVM01.ViewModels
                 //MessageBox.Show("Datos no guardados");
                 return;
             }
-            else
-            {
-                usuarioService.SaveUsuario(usuario);
-                var result = usuarioService.GetUsuario();
-                Usuarios = new List<Usuario>(result);
-            }
-
+            usuarioService.SaveUsuario(usuario);
+            var result = usuarioService.GetUsuario();
+            Usuarios = new List<Usuario>(result);
         }
     }
 }

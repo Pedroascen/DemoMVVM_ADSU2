@@ -3,6 +3,7 @@ using System.Windows.Input;
 
 namespace DemoMVVM01
 {
+    //Declaracion de eventos
     public class RelayCommand : ICommand
     {
         private readonly Action<object> _execute;

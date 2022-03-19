@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Views\fondo2.jpg" />
+    <Resource Include="Views\resourse\fondo2.jpg" />
   </ItemGroup>
 
 </Project>

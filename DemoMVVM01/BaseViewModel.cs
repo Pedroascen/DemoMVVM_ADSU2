@@ -12,7 +12,7 @@ namespace DemoMVVM01
         public event PropertyChangingEventHandler PropertyChanging;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyCahnging([CallerMemberName] string propertyName = ""){
+        protected void OnPropertyChanging([CallerMemberName] string propertyName = ""){
             PropertyChanging(this, new PropertyChangingEventArgs(propertyName));
         }
 

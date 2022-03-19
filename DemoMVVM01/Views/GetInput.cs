@@ -13,22 +13,3 @@ namespace DemoMVVM01.Views
         static public string apellido;
     }
 }
-
-
-//public event PropertyChangedEventHandler PropertyChanged;
-
-//private void OnPropertyChanged(string property) {
-//    if (PropertyChanged != null)
-//    {
-//        PropertyChanged(this, new PropertyChangedEventArgs(property));
-//    }
-//}
-
-//public string Nombre {
-//        get { return nombre; }
-//        set { nombre = value; }
-//    }
-//public string Apellido{
-//        get { return apellido; }
-//        set { apellido = value; }
-//    }
