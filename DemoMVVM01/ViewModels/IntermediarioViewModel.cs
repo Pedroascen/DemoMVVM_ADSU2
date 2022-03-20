@@ -10,10 +10,11 @@ namespace DemoMVVM01.ViewModels
 {
     public class IntermediarioViewModel : BaseViewModel
     {
-        //view model base es una clase base que hereda de las interfazes anote
+        //view model base es una clase base que hereda de las interfazes --anote
         #region Properties
         private List<Usuario> usuarios;
-        
+        //instanciar cuando se ejecuta el app
+        UsuarioService usuarioService = new UsuarioService();
 
         public List<Usuario> Usuarios {
             get {
@@ -38,7 +39,7 @@ namespace DemoMVVM01.ViewModels
 
         public ICommand UsuarioCommand
         {
-            get {
+             get {
                 if (usuarioCommand == null) {
                     usuarioCommand = new RelayCommand(param => this.usuarioCommandExecute(), null);
                 }
@@ -50,26 +51,38 @@ namespace DemoMVVM01.ViewModels
 
 
         public IntermediarioViewModel() {
+
+        }
+
+        public void EjecutarCommand(){
+            //MessageBox.Show("Hola desde el ModelView");
             //usuarioCommandExecute();
         }
 
+        int contador = 1;
         public void usuarioCommandExecute()
         {
             Usuario usuario = new Usuario();
-            var usuarioService = new UsuarioService();
-
-            usuario.ID++;
+            usuario.ID = contador;
             usuario.Nombre = GetInput.nombre;
             usuario.Apellido = GetInput.apellido;
             usuario.Hora = DateTime.Now.AddDays(usuario.ID);
 
-            if (usuario.Nombre == null || usuario.Apellido == null) {
+            if (usuario.Nombre == null || usuario.Apellido == null)
+            {
                 //MessageBox.Show("Datos no guardados");
                 return;
             }
+
             usuarioService.SaveUsuario(usuario);
             var result = usuarioService.GetUsuario();
+
+            GetInput.nombre = null;
+            GetInput.apellido = null;
+
             Usuarios = new List<Usuario>(result);
+            contador++;
+               
         }
     }
 }

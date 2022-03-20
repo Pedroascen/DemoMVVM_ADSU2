@@ -56,7 +56,7 @@
             <Label Height="25" Margin="54,82,190,112" Content="Apellido:" />
             <TextBox x:Name="IApellidoText" Height="20" Width="130" Margin="130,83,60,116"/>
             <Button Height="30" Margin="69,121,55,68" Content="Agregar Usuario" Click="Button_Click" Command="{Binding UsuarioCommand}"/>
-
+            <!---->
         </Grid>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using DemoMVVM01.ViewModels;
+﻿
+using DemoMVVM01.ViewModels;
 using System.Windows;
 
 
@@ -10,8 +11,6 @@ namespace DemoMVVM01.Views
         public MainWindow()
         {
             InitializeComponent();
-
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -27,8 +26,8 @@ namespace DemoMVVM01.Views
                 GetInput.apellido = IApellidoText.Text;
                 //MessageBox.Show("Su nombre es: " + GetInput.nombre + " " + GetInput.apellido);
                 //IdText.Clear();
-                //INombreText.Clear();
-                //IApellidoText.Clear();
+                INombreText.Clear();
+                IApellidoText.Clear();
             }
         }
     }
